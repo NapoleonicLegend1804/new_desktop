@@ -18,6 +18,10 @@
         <div class="main">
            <div class="widget">
                 <h3>Widget 1</h3>
+                <div id="notepad" name="message" rows="20" cols="40">
+
+                </div>
+                <p><button id="saveNoteBtn">Save</button></p>
            </div>
            <div class="widget">
                 <h3>Widget 2</h3>
@@ -31,6 +35,16 @@
 </body>
 
 <script>
+    try {
+        var loadNotes = localStorage.getItem("notes");
+    }
+
+    catch(err){
+        var loadNotes = "Enter notes and click Save"
+    }
+
+    $('#notepad').val(loadNotes);
+
     var sp = "/"
     var today = new Date()
 
@@ -42,6 +56,11 @@
     if(mm<10) mm='0'+mm
 
     document.getElementById('date').innerHTML = dd + "/" + mm + "/" + yyyy
+
+    $("#notepad").click(function(){
+        var currentNotes = $("#saveNoteBtn").val();
+        localStorage.setItem("notes", currentNotes);
+    })
 </script>
 </html>
 
