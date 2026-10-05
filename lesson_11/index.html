@@ -19,7 +19,7 @@
            <div class="widget">
                 <h3>Widget 1</h3>
                 <div id="notepad" name="message" rows="20" cols="40">
-
+                    <textarea id="note-area" name="message" rows="20" cols="40"></textarea>
                 </div>
                 <p><button id="saveNoteBtn">Save</button></p>
            </div>
@@ -43,7 +43,7 @@
         var loadNotes = "Enter notes and click Save"
     }
 
-    $('#notepad').val(loadNotes);
+    $('#note-area').val(loadNotes);
 
     var sp = "/"
     var today = new Date()
@@ -57,8 +57,8 @@
 
     document.getElementById('date').innerHTML = dd + "/" + mm + "/" + yyyy
 
-    $("#notepad").click(function(){
-        var currentNotes = $("#saveNoteBtn").val();
+    $("#saveNoteBtn").click(function(){
+        var currentNotes = $("#note-area").val();
         localStorage.setItem("notes", currentNotes);
     })
 </script>
